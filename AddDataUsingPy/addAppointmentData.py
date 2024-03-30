@@ -17,12 +17,19 @@ db = client["AppointmentApp"]
 # all collections
 services = db["services"]
 
+import random
+
+def get_random_name():
+    names = ["jittam","John", "Alice", "Bob", "Emma", "Michael", "Sophia", "William", "Olivia", "James", "Ava"]
+    return random.choice(names)
+
 
 def createData(_id, date, tm):
+    name=get_random_name()
     data = {
         "_id": _id+"_"+str(int(time.time()*10000)),
-        "name": "jittam",
-        "email": "jittam@gmail.com",
+        "name": name,
+        "email": name+"@gmail.com",
         "contactNumber": "7600999183",
         "dateTime": {
             "date": str(date),
